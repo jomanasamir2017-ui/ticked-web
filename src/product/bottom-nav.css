@@ -1,0 +1,12 @@
+.bottom-nav{position:absolute;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px max(10px,env(safe-area-inset-bottom));background:var(--paper);border-top:2px solid var(--ticked-blue);box-shadow:0 -10px 24px -14px rgba(48,59,201,.35)}
+.bottom-nav__item{display:grid;justify-items:center;gap:3px;min-height:52px;padding:0;border:0;background:transparent;color:var(--ticked-blue);font:700 11px/1 var(--font-body);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bottom-nav__pill{display:grid;place-items:center;width:52px;height:30px;border-radius:15px;transition:background .2s,transform .25s var(--ease-pop,ease)}
+.bottom-nav__pill .tk-icon{width:22px;height:22px}
+.bottom-nav__item[aria-current="page"] .bottom-nav__pill{background:var(--ticked-yellow);box-shadow:2px 2px 0 var(--ticked-blue);transform:translateY(-2px)}
+.bottom-nav__item[aria-current="page"] .bottom-nav__label{font-weight:800}
+.bottom-nav__item:active .bottom-nav__pill{transform:scale(.92)}
+:root[data-ticked-theme="dark"] .bottom-nav{border-top-color:var(--line-strong)}
+:root[data-ticked-theme="dark"] .bottom-nav__item{color:var(--ink)}
+:root[data-ticked-theme="dark"] .bottom-nav__item[aria-current="page"] .bottom-nav__pill{color:#303BC9}
+/* space for the bar on the main screens */
+.collection-home{padding-bottom:calc(92px + env(safe-area-inset-bottom))}

@@ -1,0 +1,100 @@
+/* Tasks · Calendar · More — brand: blue #303BC9, pink #EE5A75, yellow #FFE457, cream */
+.tasks,.cal,.more{padding:6px 2px 0;color:var(--ink)}
+
+/* ---------- Tasks ---------- */
+.tasks-head{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;padding:4px 4px 12px}
+.tasks-head h2{margin:0;font:500 clamp(26px,8vw,32px)/1 var(--font-body);letter-spacing:.02em;color:var(--ticked-blue)}
+.tasks-head h2 b{font:800 clamp(30px,9vw,38px)/1 var(--font-display);letter-spacing:-.02em;margin-inline-start:4px}
+.tasks-week{display:flex;gap:4px}
+.tasks-dot{display:grid;justify-items:center;gap:4px;min-width:26px;padding:0;border:0;background:transparent;color:var(--ticked-blue);cursor:pointer}
+.tasks-dot small{font:700 8px/1 var(--font-body);letter-spacing:.04em}
+.tasks-dot i{width:16px;height:16px;border-radius:50%;background:var(--ticked-yellow);box-shadow:0 0 0 1.5px var(--ticked-blue);transition:transform .2s var(--ease-pop,ease)}
+.tasks-dot i[data-today]{background:var(--ticked-pink)}
+.tasks-dot[aria-pressed="true"] i{transform:scale(1.35);box-shadow:0 0 0 2px var(--ticked-blue),2px 2px 0 var(--ticked-blue)}
+.tasks-dot[aria-pressed="true"] small{font-weight:800}
+.tasks-error{margin:0 0 8px;padding:8px 12px;border-radius:12px;background:var(--ticked-pink);color:var(--on-pink)}
+.tasks-board{background:var(--ticked-blue);border-radius:30px;padding:12px;display:grid;gap:10px;box-shadow:4px 4px 0 var(--ticked-pink)}
+.tasks-remember{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border-radius:999px;background:var(--ticked-cream)}
+.tasks-remember span{font:700 10px/1 var(--font-body);letter-spacing:.14em;color:var(--ticked-blue);text-transform:uppercase}
+.tasks-remember input{flex:1;min-width:0;border:0;background:transparent;font:600 15px var(--font-body);color:var(--ticked-blue);outline:none}
+.tasks-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px;align-items:start}
+.tasks-card{background:var(--ticked-cream);border-radius:22px;padding:12px 10px;overflow:hidden}
+.tasks-card h3{margin:0;text-align:center;font:600 12px/1 var(--font-body);letter-spacing:.16em;color:var(--ticked-blue)}
+.tasks-todo h3{font:600 16px/1 var(--font-body);letter-spacing:.06em;padding:4px 0 10px;display:flex;justify-content:center;align-items:center;gap:8px}
+.tasks-todo h3 em{font:800 11px/1 var(--font-body);font-style:normal;letter-spacing:0;padding:4px 8px;border-radius:999px;background:var(--ticked-yellow);color:var(--ticked-blue)}
+.is-complete .tasks-todo h3 em{background:var(--ticked-pink);color:var(--on-pink);animation:tk-pop .5s var(--ease-pop,ease)}
+.tasks-colhead{display:flex;justify-content:space-between;padding:0 4px 4px;font:600 9px/1 var(--font-body);letter-spacing:.14em;color:var(--ticked-blue)}
+.tasks-urgent h3,.tasks-notes h3{margin:0 -10px 8px;padding:10px 0;background:var(--ticked-yellow);border-radius:0}
+.tasks-urgent,.tasks-notes{padding-top:0}
+.cal-nav{position:relative;bottom:auto;padding-top:16px}
+.tasks-reminder{background:#C1BFDD}.tasks-reminder h3{padding:2px 0 8px}
+.tasks-side{display:grid;gap:10px}
+.tasks-card textarea{width:100%;min-height:96px;border:0;background:transparent;resize:none;font:500 13px/1.45 var(--font-body);color:var(--ticked-blue);outline:none;display:block}
+.tasks-notes textarea{min-height:150px}
+.tasks-row{display:flex;align-items:center;gap:6px;min-height:34px;border-bottom:1.5px solid #8D90D6}
+.tasks-row input{flex:1;min-width:0;border:0;background:transparent;font:500 14px var(--font-body);color:var(--ticked-blue);outline:none;padding:6px 2px}
+.tasks-row.is-done input{text-decoration:line-through;text-decoration-color:var(--ticked-pink);text-decoration-thickness:2px;opacity:.6}
+.tasks-row--reminder{min-height:30px;border-bottom-color:rgba(255,255,255,.7)}
+.tasks-check{flex:none;width:20px;height:20px;padding:0;display:grid;place-items:center;border:1.5px solid var(--ticked-blue);border-radius:5px;background:var(--ticked-yellow);color:var(--ticked-blue);cursor:pointer;transition:transform .15s}
+.tasks-check .tk-icon{width:14px;height:14px;stroke-width:3}
+.tasks-check[aria-checked="true"]{background:var(--ticked-pink);box-shadow:2px 2px 0 var(--ticked-blue);animation:tk-pop .42s var(--ease-pop,ease)}
+.tasks-check--round{border-radius:50%;background:var(--ticked-cream)}
+.tasks-check--round[aria-checked="true"]{background:var(--ticked-yellow)}
+.tasks-check:focus-visible{outline:3px solid var(--ticked-pink);outline-offset:2px}
+@keyframes tk-pop{0%{transform:scale(.6) rotate(-14deg)}55%{transform:scale(1.3) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+.tasks-nav,.cal-nav{position:sticky;bottom:calc(76px + env(safe-area-inset-bottom));z-index:5;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 0 4px}
+.tasks-nav button,.cal-nav button,.cal-top button,.cal-year__head button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:48px;min-height:48px;padding:0 14px;border:2px solid var(--ticked-blue);border-radius:999px;background:var(--paper);color:var(--ticked-blue);font:800 14px var(--font-body);cursor:pointer;box-shadow:3px 3px 0 var(--ticked-blue)}
+.tasks-nav button:active,.cal-nav button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ticked-blue)}
+.tasks-nav__label{min-width:150px;background:var(--ticked-yellow)!important}
+.tasks-nav__label[data-now]{background:var(--ticked-pink)!important;color:var(--on-pink)!important}
+.tk-icon{vertical-align:middle}
+
+/* ---------- Calendar: the year (poster) ---------- */
+.cal-year__head{display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 0 14px}
+.cal-year__head h2{margin:0;min-width:110px;text-align:center;font:800 40px/1 var(--font-display);letter-spacing:-.03em;color:var(--ticked-blue)}
+.cal-poster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cal-mini{display:block;padding:0;border:0;border-radius:12px;overflow:hidden;background:var(--bg);color:var(--fg);text-align:left;cursor:pointer;box-shadow:0 0 0 1.5px rgba(48,59,201,.25);position:relative;transition:transform .2s var(--ease-pop,ease)}
+.cal-mini:active{transform:scale(.97)}
+.cal-mini[data-now]{box-shadow:0 0 0 3px var(--ticked-pink),4px 4px 0 var(--ticked-blue)}
+.cal-mini img{display:block;width:100%;aspect-ratio:1/1.04;object-fit:cover;background:var(--paper)}
+.cal-mini .cal-grid{padding:8px 8px 10px}
+.cal-grid h3{margin:0 0 6px;display:flex;justify-content:space-between;align-items:baseline;gap:4px;font:800 11px/1 var(--font-display);letter-spacing:.01em;color:var(--fg)}
+.cal-grid h3 span{font:800 9px/1 var(--font-display)}
+.cal-letters,.cal-days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center}
+.cal-letters span{font:800 7.5px/1.6 var(--font-body)}
+.cal-days .cal-day{font:700 8px/1.9 var(--font-body);color:var(--fg);padding:0}
+.cal-mini .cal-day[data-today]{background:var(--fg);color:var(--bg);border-radius:50%;line-height:1.5}
+
+/* ---------- Calendar: one month ---------- */
+.cal-top{display:flex;justify-content:flex-start;padding:2px 0 10px}
+.cal-card{border-radius:22px;overflow:hidden;background:var(--bg);color:var(--fg);box-shadow:0 0 0 2px var(--ticked-blue),5px 5px 0 var(--ticked-blue);touch-action:pan-y;user-select:none}
+.cal-card img{display:block;width:100%;height:min(66vw,262px);object-fit:contain;object-position:50% 50%;background:var(--paper);padding:10px 0 0;box-sizing:border-box}
+.cal-card .cal-grid{padding:14px 14px 18px}
+.cal-card .cal-grid h3{font:800 clamp(20px,6.2vw,26px)/1 var(--font-display);margin-bottom:10px}
+.cal-card .cal-grid h3 span{font:800 clamp(16px,5vw,20px)/1 var(--font-display)}
+.cal-card .cal-letters span{font:800 12px/2 var(--font-body)}
+.cal-card .cal-days{row-gap:2px}
+.cal-card .cal-day{position:relative;display:grid;place-items:center;aspect-ratio:1;border:0;border-radius:50%;background:transparent;font:800 15px var(--font-body);color:var(--fg);cursor:pointer}
+.cal-card .cal-day[data-today]{background:var(--fg);color:var(--bg)}
+.cal-card .cal-day[data-busy]::after{content:"";position:absolute;bottom:3px;width:5px;height:5px;border-radius:50%;background:var(--ticked-pink);box-shadow:0 0 0 1px var(--bg)}
+.cal-card .cal-day:active{transform:scale(.9)}
+.cal-nav__label{min-width:150px;text-align:center;font:600 13px var(--font-body);color:var(--ticked-blue);letter-spacing:.04em}
+.cal-nav__label b{font:800 16px var(--font-display)}
+
+/* ---------- More ---------- */
+.more{display:grid;gap:10px;padding-top:4px}
+.more h2{margin:0 0 4px;font:800 40px/1 var(--font-display);letter-spacing:-.03em;color:var(--ticked-blue)}
+.more-item,.more-card>button{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:0 16px;border:2px solid var(--ticked-blue);border-radius:18px;background:var(--paper);color:var(--ticked-blue);font:800 16px var(--font-body);text-align:left;cursor:pointer;box-shadow:3px 3px 0 var(--ticked-blue)}
+.more-item .tk-icon,.more-card .tk-icon{width:24px;height:24px;color:var(--ticked-pink)}
+.more-item em{margin-inline-start:auto;font:800 13px var(--font-body);font-style:normal;min-width:26px;height:26px;border-radius:13px;background:var(--ticked-yellow);display:grid;place-items:center}
+.more-card--new>button{background:var(--ticked-yellow)}
+.more-tasksbackup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.more-tasksbackup .more-item{padding:0 12px;font-size:14px}
+.more-msg{margin:0;padding:10px 14px;border-radius:14px;background:var(--ticked-yellow);color:var(--ticked-blue);font-weight:700}
+.more-foot{display:flex;align-items:center;gap:8px;margin:6px 4px 0;color:var(--ink-600);font-size:13px}
+
+:root[data-ticked-theme="dark"] .tasks-head h2,:root[data-ticked-theme="dark"] .cal-year__head h2,:root[data-ticked-theme="dark"] .more h2,:root[data-ticked-theme="dark"] .cal-nav__label{color:var(--ink)}
+:root[data-ticked-theme="dark"] :is(.tasks-nav button,.cal-nav button,.cal-top button,.cal-year__head button,.more-item){color:var(--ink);background:transparent;border-color:var(--line-strong);box-shadow:none}
+@media (prefers-reduced-motion:reduce){.tasks-check,.is-complete .tasks-todo h3 em{animation:none}}
+
+.cal-nav{position:relative!important;bottom:auto!important;padding-top:18px}
